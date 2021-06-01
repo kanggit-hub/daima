@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // then 
+
+                // 当promise对象是成功状态的时候,会自动调用then方法
+                // then 中一般书写一个回调函数,回调函数有一个形参data 就是成功promise对象的值
+
+                // then的返回值
+                // 当then中不传递任何参数是会出现穿透 返回值和调用then的promise对象一模一样
+                // 当then中没有返回promise状态的时候,默认返回成功状态
+                // 当then中返回的不是一个promise对象的时候 then的状态和值与返回的promise的状态和值一致
+                // 当then中返回一个promise对象的时候,then的状态和值 与  返回的prom米色的状态和值一致
+                // 当调用then和promise对象的是一个失败的的对象的时候,则then直接返回一个失败的promise对象
+
+        // 请求数据
+
+        const pl =new Promise((resolve,reject)=>{
+            setTimeout(() => {
+                try {
+                    
+                    console.log("请求数据");
+                    resolve([1,2,3,4])
+                } catch (e) {
+                    reject(e)
+                }
+            }, 2000);
+        })
+        console.log(pl);
+
+        const p2 =  pl.then((data)=>{
+
+            return new Promise((resolve,reject)=>{
+                setTimeout(() => {
+                    try{
+                    //   throw new Error("cuo")
+                        console.log("1");
+                        resolve()
+
+                    }catch(e){
+                        reject(e);
+                    }
+                    
+                }, 2000);
+            })
+        })
+
+        console.log(p2);
+
+        // catch的返回值
+        // 如果catch中没有任何参数,当是白的promise调用catch的时候也会穿透,
+        // catch返回这个是promise对象
+        // catch默认返回成功的promise对象
+        // 如果catch返回一个promise对象 则catch的返回值和这个promise对象一致
+
+
+        const p3 = pl.catch((e)=>{
+            console.log(e);
+
+            return Promise.reject();
+        })
+        console.log(p3);
+
+        // finally
+        // 无论成功失败都会调用finally
+
+        const p4 =pl.finally(()=>{
+            console.log("finally");
+        })
+
+    </script>
+    
+</body>
+</html>

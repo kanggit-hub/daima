@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [1, , 32, 2, 1, 23, 45, 67, 2];
+        function getNum(arr){
+            if(arr.length <= 1){
+                return arr;
+            }
+            var center = arr.pop();
+            // console.log(center)
+            var left = [];
+            var right = [];
+
+            arr.forEach(function (item, index) {
+                if (item >= center) {
+                    right.push(item);
+
+                } else {
+                    left.push(item);
+                }
+            });
+            
+             var arr =  getNum(left).concat(center, getNum(right))
+             return arr;
+        }
+              var re = getNum(arr)
+              console.log(re)
+
+
+
+    </script>
+
+</body>
+
+</html>

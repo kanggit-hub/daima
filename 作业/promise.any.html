@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Promise.any()
+        // 监听多个promise对象
+        // 只有一个成功 则直接返回成功的promise对象
+        // 如果全部失败了 则直接返回是白的promise对象 并携带错误信息
+        const p1 = new Promise((resolve, reject) => {
+            console.log("请求A中。。。。");
+            setTimeout(() => {
+                try {
+                    throw new Error("err:A");
+                    console.log("A success");
+                    resolve("A")
+                } catch (e) {
+                    reject(e);
+                }
+            }, 2000)
+        })
+
+        const p2 = new Promise((resolve, reject) => {
+            console.log("请求B中。。。。");
+            setTimeout(() => {
+                try {
+                    throw new Error("err:B");
+                    console.log("B success");
+                    resolve("B")
+                } catch (e) {
+                    reject(e);
+                }
+            }, 1000)
+        })
+
+
+        const p3 = new Promise((resolve, reject) => {
+            console.log("请求C中。。。。");
+            setTimeout(() => {
+                try {
+                    throw new Error("err:C");
+                    console.log("C success");
+                    resolve("C")
+                } catch (e) {
+                    reject(e);
+                }
+            }, 1500)
+        })
+
+        const re = Promise.any([p1, p2, p3]);
+        console.log(re);
+        re.then((data) => {
+            console.log(data);
+        }).catch((e) => {
+            console.log(e);
+        })
+    </script>
+</body>
+</html>

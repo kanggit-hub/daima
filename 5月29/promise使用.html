@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Promise的使用
+        // 需要实例化调用 参数必须是一个回调函数
+        // 回调函数有连个参数 resolve reject 这两个参数其实是回调函数
+        // 当异步代码执行成功的时候 可以调用resolve函数 通知promise我成功了
+        // 当异步代码执行失败的时候 可以调用reject函数 通知promise对象我失败了
+        // 当不调用resolve 和reject 时  promise一直在等待
+        //  调用resolve和reject时间 回调函数的参数 就是promise状态对应的值
+
+        // promise 的返回值
+
+        // 是一个对象 有两个属性
+        // promiseState 当前promise的状态
+        // promiseResult 当前promise的值
+
+        // promise的三种状态
+        // pending 正在进行时
+        // fulfilled/resolved 成功
+        // rejected 失败
+
+        const p1 = new Promise((resolve, reject) => {
+            console.log(1);
+
+            setTimeout(() => {
+
+                try {
+                    const data = {
+                        name: "laowang",
+                        err: 0
+                    }
+                    resolve(data);
+                } catch (e) {
+                    reject(e)
+                }
+
+
+            }, 2000);
+        })
+            console.log(p1);
+    </script>
+
+</body>
+
+</html>

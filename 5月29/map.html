@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // map 提供了真正的"key-value"的键值对解构,key可以是任意类型
+        // size 属性返Map结构的成员总数
+
+        // set 方法设置键名Key对应的键值为value,返回整个Map结构如果key已经有值,则键值会被更新,否则就新生成该键值
+        // set方法返回的是当前Map对象 因此可以采取链式写法
+
+        // get方法读取key对应的键值,如果找不到key 返回undefined
+
+        // has 方法返回一个布尔值,表示某个键是否在当前Map对象中
+
+        // delete方法删除某个键,返回true 如果删除失败,返回false
+
+        // clear 方法清楚所有成员 没有返回值
+
+        // keys() 返回键名的遍历器
+
+        // values() 返回键值的遍历器
+
+        // entries()返回所有成员的遍历器
+
+        // forEach() 遍历Map 的所有成员
+
+        // 初始化一个map
+        const map = new Map([
+            ["name","laowang"],
+            [true,"nan"],
+            [123,18]
+        ])
+        // console.log(map);
+        
+        // console.log(map.size);
+        
+        // let re = map.set([000],"name")
+        // console.log(re);
+        
+        // let re1 = map.get(123);
+        // console.log(re1);
+        // console.log(map.has(123));
+        // map.delete(true)
+        // console.log(map);
+        // console.log(map);
+        
+        map.forEach((item,index)=>{
+            console.log(index);
+        })
+        // map.clear();
+        
+        
+
+        
+    </script>
+
+
+</body>
+</html>

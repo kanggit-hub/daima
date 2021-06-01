@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 封装一个父类
+        function Person(name) {
+            this.name = name;
+        }
+        Person.prototype.eat = function () {
+            console.log("1");
+        }
+
+        // 封装子类
+        function Student(subject, name) {
+
+            // 构造函数继承
+            // 调用父类 并改变父类的this
+            Person.call(this, name);
+
+            this.subject = subject;
+
+        }
+        // // 原型链继承
+        Student.prototype = new Person;
+
+        // 修复构造器
+        Student.prototype.constructor = Student;
+        Student.prototype.study = function () {
+            console.log("promise");
+        }
+        const s1 = new Student("h5", "laozhang");
+        console.log(s1);
+        console.log(s1.constructor);
+
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

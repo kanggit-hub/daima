@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+ <script>
+
+ 
+    // Promise.resolve()
+
+    //  用于将现有对象转换为promsie对象 从而控制异步流程
+
+    // Promise.reject()
+    // 直接创建一个失败的promise对象
+
+    
+
+    const p1 = Promise.resolve(1);
+    console.log(p1);
+
+    p1.then((data) => {
+    console.log("a");
+    })
+
+
+    console.log("b");
+
+
+    const p2 = Promise.reject("err:err");
+    console.log(p2);
+ </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="ipt">
+    <script>
+        // 手写防抖
+
+        const ipt = document.getElementById("ipt");
+
+
+        function center(event) {
+            console.log("核心代码");
+            console.log(this);
+            console.log(event);
+
+        }
+        ipt.oninput = debounce(center, 500);
+
+        function debounce(fn, time) {
+            // 初始化定时器
+            var timer = null
+            // 时间函数
+            return function () {
+                clearTimeout(timer);
+                // 保存this和event事件
+                var _this = this;
+                var e = arguments[0];
+                // 定时器让代码延时执行
+                timer = setTimeout(function () {
+                    // 通过call调用修正this指向和事件对象
+                    fn.call(_this,e)
+                }, time)
+            }
+        }
+    </script>
+
+
+</body>
+
+</html>

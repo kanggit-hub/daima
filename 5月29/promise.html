@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 什么是promise:
+        //  回调函数嵌套回调函数称为回调地狱。这样程序变得难以维护 耦合度高
+
+        // promise 
+        //   promise 是一个构造函数 使用的时候需要实例化
+        //  promise 对象有all allSettled race any reject resolve 等静态方法
+        // promise 原型对象上有then catch finally 等方法
+
+        console.dir(Promise);
+        console.log(Promise.prototype);
+        console.log(new Promise(()=>{
+            
+        }));
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       // 浅拷贝
+        // var obj = {
+        //     name:"laoWang",
+        //     sex:"nan",
+        //     score:{
+        //         cha:90,
+        //         math:80
+        //     }
+        // }
+        // //声明一个空对象
+        // var newObj = {};
+        // //遍历原对象
+        // for(var k in obj){
+        //     newObj[k]=obj[k];
+        // }
+        // console.log(newObj);
+        // console.log(newObj === obj);
+        // console.log(newObj.score === obj.score);
+
+        //深拷贝
+        var obj = {
+            name:"laoWang",
+            sex:"nan",
+            score:{
+                cha:90,
+                math:80
+            }
+        }
+        // 判断数据类型
+        function checkType(data) {
+            return Object.prototype.toString.call(data).slice(8,-1).toLowerCase();
+        }
+        
+        // 克隆对象
+        function deepClone(data){
+        //   判断数据类型是否为对象
+            if (checkType(data) === "object") {
+                var newObj = {};
+                // 判断数据类型是否为数组
+            }else if(checkType(data) === "array"){
+                var newObj = [];
+            }else{
+                return data;
+            }
+        //    遍历原数组并赋值
+            for( var k in data){
+                newObj[k]=deepClone(data[k]);
+            }
+            // 返回拷贝完的对象
+            return newObj;
+            
+        }
+        // 接受克隆的新对象
+          var re = deepClone(obj);
+        console.log(re)
+        // 两个对象的属性不相等
+        console.log(obj.score === re.score);
+
+    </script>
+
+    
+</body>
+</html>

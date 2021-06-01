@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //给已存在的对象扩展或则修改描述的属性和方法
+        // 参数：
+            // 1，被扩展的对象
+            // 2，被扩展的属性
+            // 3，被扩展的属性描述
+
+            var obj = {
+                name:"laoWang",
+            }
+            Object.defineProperty(obj,"age",{
+                value:19,
+                writable:true,
+                configurable:true,
+                enumerable:true
+            })
+            obj.name = "wang"
+            delete obj.age
+            console.log(obj);
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            height: 1000000px;
+        }
+    </style>
+</head>
+
+<body>
+    <script>
+        // 存取器属性
+        // 得到当前属性的回调函数
+        // get  propertyName(){}
+        // 监视当前属性值变化的回调函数
+        // set  propertyName(){}
+
+
+        // 普通对象属性写法
+        var obj1 = {
+            name1: "lao",
+            name2: "wang",
+            get all() {
+                return this.name1 + this.name2
+            },
+            set all(data) {
+                 var arr = data.split(",");
+                  this.name1 = arr[0];
+                  this.name2 = arr[1];
+            }
+        }
+        console.log(obj1.all);
+        obj1.all = "lao,zhang"
+        console.log(obj1)
+
+
+            // ES扩展对象属性
+            // var obj = {
+            //     name:"laoWang",
+            //     age:14,
+            // }
+            // // 用ES扩展对象属性的写法 名字在第二个参数上
+            // Object.defineProperty(obj,"all",{
+            //     get(){
+            //         return this.name + this.age;
+            //     }
+            // })
+            // console.log(obj.all);
+
+               var  time = 0
+            window.onscroll = function(){
+                var nowTime = Date.now();
+                console.log(nowTime- time)
+                     time = nowTime
+                   
+            }
+
+
+    </script>
+</body>
+
+</html>

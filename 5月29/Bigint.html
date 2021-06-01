@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   
+    <script>
+        // js整型计算只能精确到2的53次方
+        // js的计算只能计算到2的1024次方，否者将变成infinity
+        // 为了与Number类型区别，BigInt类型数据必须加后缀n
+
+
+        console.log(2**53);
+       
+        console.log(2**1023);
+
+        console.log(2**1022);
+        console.log(2n**53n);
+        console.log(2n**1025n);
+    </script>
+</body>
+</html>

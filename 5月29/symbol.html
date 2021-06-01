@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 表示独一无二的值
+        // 直接symbol可以得到一个独一无二的值
+        // symbol中传入的字符串没有任何意义，只是用来描述symbol
+        // symbol不能使用new调用
+        // 类型转换的时候不能转数字
+        // 如果把symbol当作一个对象的属性和方法的时候,一定要用一个变量来储存,否则定义的属性和方法没有办法使用
+        // for in 不能遍历出来 可以使用 Object.getOwnPropertySymbols方法来拿
+
+        // {
+        //     console.log(console);
+        //     // 给log扩展一个属性
+        //     console.log = function () {
+        //         console.error("错误");
+        //     }
+        //     console.log();
+
+        // }
+
+        //  初始化一个symbol symbol 的参数是为了识别这个值是什么值
+        const sy1 = Symbol("sy1");
+        console.log(sy1);
+        console.log(typeof sy1);
+        console.log(Object.prototype.toString.call(sy1).slice(8,-1).toLowerCase());
+        
+      
+        
+    </script>
+</body>
+
+</html>

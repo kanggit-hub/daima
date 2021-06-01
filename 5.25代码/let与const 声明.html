@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // let声明的变量只在当前代码块生效
+        //  1.块级作用域
+        //  2.可以嵌套,也有作用域链
+        //  3.没有声明提升
+        //  4.不允许重复声明
+
+        // for 中小括号使用let 声明的不是全局的作用域,而是一个单独的作用域
+        // 是for代码的父级作用域
+
+        // const 声明 
+        //  1.常量的值要求大写,但是可以不遵守
+        // 2.常量的值不允许修改
+        // 3.一旦声明必须初始化
+        // 4.支持块级作用域
+        // 5.声明不能提升也不能重复声明
+
+        // let 和 const声明的全部变量不再是window的属性和方法
+        //  {
+        //      let a = 1;
+
+        //  }
+        // //  console.log(a);
+
+        // {
+        //     let a = 1;
+        //     let a = 2;
+        //     {
+        //         console.log(b);
+        //         let b = 2;
+        //         console.log(a);
+        //     }
+        //     // console.log(b);
+        // }
+
+
+            // 用let声明是一个独立作用域
+        for (let i = 0; i < 5; i++) {
+            // console.log(i);
+            setTimeout(function () {
+                console.log(i);//0 1 2 3 4
+            }, 500);
+        }
+            // var声明的是一个全局作用域
+        for (var i = 0; i < 5; i++) {
+            setTimeout(function () {
+                console.log(i); //5 5 5 5 5
+            }, 300)
+        }
+
+
+    </script>
+</body>
+
+</html>

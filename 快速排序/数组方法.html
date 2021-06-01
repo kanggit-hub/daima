@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        //map 映射数组
+        // 只要数组调用map方法，则会返回一个和原数组一样长的数组，默认值是undefined
+        // 可以在遍历过程中操作数组
+        // var arr = [1, 2, 3, 5];
+
+        // var re = arr.map(function (item, index) {
+        //     return item + 10
+        // })
+        // console.log(re);
+
+        //filter 过滤数组
+        //遍历数组返回一个新数组
+        //每次遍历回调函数的返回值如果是true 则把当前的值添加到新数组当中
+        var person = [{
+            name: "wang1",
+            age: 10,
+            sex: "nan"
+        }, {
+            name: "wang2",
+            age: 10,
+            sex: "nan"
+        }, {
+            name: "wang3",
+            age: 11,
+            sex: "nan"
+        }]
+        // var re = person.filter(function (item, index) {
+        //     // if(item.age>18){
+        //     //    // 回调函数的返回值如果是true 则把当前的值添加到新数组当中
+        //     //     return true
+        //     // }
+
+        //     return item.age > 18
+        // })
+        // console.log(re);
+
+        // every 一假即假
+        // 用于判断 返回布尔值
+        // 只要有一个回调函数返回false 则停止遍历 返回false
+        //  var p = person.every(function (item, index) {
+        //     if (item.age < 18){
+        //         console.log(item);
+        //         return true;
+        //     }
+        //     return false
+            
+        //  })
+        //  console.log(p)
+        //  if(p){
+        //      console.log("全部未成年");
+        //  }else{
+        //      console.log("有成年人");
+        //  }
+
+
+    </script>
+</body>
+
+</html>

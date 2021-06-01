@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 解构赋值
+        //   本质上就是赋值,把结构解散重构,然后赋值
+        // 结构赋值的作用就是方便赋值
+
+        //  数组解构特点 
+        // 解构失败返回undefined
+        // 不完全解构也能成功
+        // 可以为解构值设置默认值
+        // 可以使用rest参数（当值比变量多的时候）...rest
+        // 多维数组只要解构关系一一对应也可以进行赋值
+
+        {
+            const [a, b, c, d] = [1, 2, 3, 44,]
+            console.log(a, b, c, d);
+        }
+
+        {
+            const [a, b, c] = [1, 2]
+            console.log(a, b, c);//1,2,undefined
+        }
+
+        {
+            let [a = 1, b = 22] = [11]
+
+            console.log(a, b);
+        }
+        {
+            const [a, ...rest] = [1, 2, 3, 4, 5, 5, 6]
+            console.log(rest);
+        }
+
+        {
+            const [a, b, c, d, j, [e, f, [g]]] = [1, 2, 3, 4, 5, [2, 3, [5]]]
+            console.log(a, b, c, d, e, f, j);
+
+        }
+
+        // 交换两个变量
+        let a = 1,
+            b = 2;
+        let temp = a;
+        a = b;
+        b = temp;
+        console.log(a, b);
+
+
+        {
+            let a = 1,
+                b = 2;
+            [a, b] = [b, a]
+            console.log(a, b);
+        }
+
+        {
+            let a = 1,
+                b = 2;
+            a = a + b;
+            b = a - b;
+            a = a - b;
+            console.log(a, b);
+        }
+
+        // 对象解构
+        //   对象解构时可以设置默认值
+        //   对象和数组    的解构可以嵌套
+
+
+
+
+        const obj = {
+            name: "laowang",
+            age: 18,
+            sex: "nan"
+
+        }
+        {
+            const {
+                name: name,
+                age: age,
+                sex: sex,
+
+            } = obj;
+            console.log(name, age, sex);
+            {
+
+                const {
+                    name,
+                    age,
+                    sex,
+                    score = 1
+                } = obj
+                console.log(score, age);
+            }
+            {
+                const o = {
+                    name: ["zhangsan", "lisi"]
+                }
+                const {
+                    name: [name1, name2, name3]
+                } = o;
+                console.log(name1, name2, name3);
+            }
+        }
+
+        // 解构数组的第一个值和最后一个值
+        {
+
+            const arr = [1, 2, 3, 4];
+            const {
+                0: a,
+                [arr.length - 1]: b
+            } = arr;
+            console.log(a, b);
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

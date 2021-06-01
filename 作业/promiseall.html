@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // Promise all:
+        // Promise 的静态方法
+        // 可以将多个promise的实力包装成一个新的promise对象
+        // 成功和失败的返回值是不同的 当全部 成功的时候 promise状态是成功状态 值的结果是数组
+        // 其中有一个返回失败的时候 返回值promise的状态变成失败状态 值为失败的值
+
+        const p1 = new Promise((resolve, reject) => {
+            console.log("请求A中。。。。");
+            setTimeout(() => {
+                try {
+                    // throw new Error("err:A");
+                    console.log("A success");
+                    resolve("A")
+                } catch (e) {
+                    reject(e);
+                }
+            }, 2000)
+        })
+
+        const p2 = new Promise((resolve, reject) => {
+            console.log("请求B中。。。。");
+            setTimeout(() => {
+                try {
+                    // throw new Error("err:B");
+                    console.log("B success");
+                    resolve("B")
+                } catch (e) {
+                    reject(e);
+                }
+            }, 1000)
+        })
+
+
+        const p3 = new Promise((resolve, reject) => {
+            console.log("请求C中。。。。");
+            setTimeout(() => {
+                try {
+                    // throw new Error("err:C");
+                    console.log("C success");
+                    resolve("C")
+                } catch (e) {
+                    reject(e);
+                }
+            }, 1500)
+        })
+
+
+        const re = Promise.all([p1, p2, p3]);
+        console.log(re);
+        re.then((data) => {
+            console.log(data);
+            console.log("所有请求成功");
+        }).catch((err) => {
+            console.log("失败了，失败信息" + err);
+        })
+    </script>
+</body>
+</html>
